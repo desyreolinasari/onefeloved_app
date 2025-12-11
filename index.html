@@ -102,6 +102,10 @@ body {
 .mobile-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
+.mobile-toggle {
+    z-index: 1001;        /* DITAMBAHKAN - agar tombol di atas overlay */
+    position: relative;    /* DITAMBAHKAN - untuk z-index bekerja */
+}
 
 .nav-menu {
     display: flex;
@@ -1011,6 +1015,7 @@ animation: gradientShift 5s ease-in-out infinite;
 @media (max-width: 768px) {
     .mobile-toggle {
         display: flex;
+        z-index: 1001;
     }
 
     .nav-menu {
@@ -1019,21 +1024,35 @@ animation: gradientShift 5s ease-in-out infinite;
         top: 70px;
         flex-direction: column;
         background: white;
-        width: 100%;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
         padding: 2rem;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         gap: 0;
+        overflow-y: auto;
     }
 
     .nav-menu.active {
         right: 0;
     }
 
+    .nav-menu li {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
     .nav-menu a {
         width: 100%;
         padding: 1rem;
-        text-align: center;
+        text-align: left;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .nav-menu a:hover {
+        background: var(--light);
     }
 
     .hero-title {
@@ -1069,6 +1088,18 @@ animation: gradientShift 5s ease-in-out infinite;
     .footer-content {
         text-align: center;
         justify-content: center;
+    }
+    
+    .vm-card {
+        padding: 2rem;
+    }
+    
+    .vm-icon {
+        font-size: 2.5rem;
+    }
+    
+    .vm-card h3 {
+        font-size: 1.5rem;
     }
 }
     </style>
@@ -1358,30 +1389,30 @@ Kecamatan Koto Tangah, Kota Padang</p>
         </div>
     </footer>
 
-    <script>
+ <script>
         // Toggle menu mobile
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
+const mobileToggle = document.getElementById('mobileToggle');
+const navMenu = document.getElementById('navMenu');
 
-hamburger.addEventListener('click', () => {
-    hamburger.classList.toggle('active');
-    navLinks.classList.toggle('active');
+mobileToggle.addEventListener('click', () => {
+    mobileToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
 });
 
 // Tutup menu saat link diklik
-const menuLinks = document.querySelectorAll('.nav-links a');
+const menuLinks = document.querySelectorAll('.nav-menu a');
 menuLinks.forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
+        mobileToggle.classList.remove('active');
+        navMenu.classList.remove('active');
     });
 });
 
 // Tutup menu saat klik di luar menu
 document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        hamburger.classList.remove('active');
-        navLinks.classList.remove('active');
+    if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        mobileToggle.classList.remove('active');
+        navMenu.classList.remove('active');
     }
 });
 
