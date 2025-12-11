@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metode Pembayaran - OneFeloved_</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ <style>
+    /* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2D3748;
+    --secondary: #4A5568;
+    --accent: #718096;
+    --light: #E2E8F0;
+    --white: #FFFFFF;
+    --text-dark: #1A202C;
+    --text-light: #718096;
+    --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    --gradient-4: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background-color: #F7FAFC;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================== NAVIGATION ==================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-menu a:hover::after {
+    width: 80%;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+/* ==================== HERO SECTION ==================== */
+.payment-hero {
+    margin-top: 70px;
+    height: 50vh;
+    min-height: 400px;
+    background: var(--gradient-1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.payment-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="30" stroke="rgba(255,255,255,0.1)" fill="none"/></svg>');
+    opacity: 0.3;
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    from { transform: translateX(0) translateY(0); }
+    to { transform: translateX(-100px) translateY(-100px); }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 2rem;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #fff, #f0f0f0, #fff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+.hero-subtitle {
+    font-size: 1.3rem;
+    font-weight: 400;
+    opacity: 0.95;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ==================== PAYMENT SECTION ==================== */
+.payment-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 50%, #f8f9fa 100%);
+}
+
+.payment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+.payment-card {
+    background: white;
+    border-radius: 30px;
+    padding: 2.5rem;
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.payment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    pointer-events: none;
+}
+
+.payment-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.3), transparent 30%);
+    animation: rotate 4s linear infinite;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+@keyframes rotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.payment-card:hover::before {
+    opacity: 1;
+}
+
+.payment-card:hover::after {
+    opacity: 0.5;
+}
+
+.payment-card:hover {
+    transform: translateY(-20px) scale(1.02);
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.2);
+    border-color: rgba(102, 126, 234, 0.3);
+}
+
+.payment-card:nth-child(1) {
+    background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+}
+
+.payment-card:nth-child(1) .payment-icon { 
+    color: #3b82f6;
+    filter: drop-shadow(0 5px 15px rgba(59, 130, 246, 0.4));
+}
+
+.payment-card:nth-child(1):hover {
+    border-color: #3b82f6;
+}
+
+.payment-card:nth-child(2) {
+    background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+}
+
+.payment-card:nth-child(2) .payment-icon { 
+    color: #10b981;
+    filter: drop-shadow(0 5px 15px rgba(16, 185, 129, 0.4));
+}
+
+.payment-card:nth-child(2):hover {
+    border-color: #10b981;
+}
+
+.payment-card:nth-child(3) {
+    background: linear-gradient(135deg, #ffffff 0%, #faf5ff 100%);
+}
+
+.payment-card:nth-child(3) .payment-icon { 
+    color: #8b5cf6;
+    filter: drop-shadow(0 5px 15px rgba(139, 92, 246, 0.4));
+}
+
+.payment-card:nth-child(3):hover {
+    border-color: #8b5cf6;
+}
+
+.payment-card:nth-child(4) {
+    background: linear-gradient(135deg, #ffffff 0%, #fffbeb 100%);
+}
+
+.payment-card:nth-child(4) .payment-icon { 
+    color: #f59e0b;
+    filter: drop-shadow(0 5px 15px rgba(245, 158, 11, 0.4));
+}
+
+.payment-card:nth-child(4):hover {
+    border-color: #f59e0b;
+}
+
+.payment-icon {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    display: block;
+    text-align: center;
+    animation: iconFloat 3s ease-in-out infinite;
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes iconFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-15px) rotate(5deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-10px) rotate(-5deg); }
+}
+
+.payment-card:hover .payment-icon {
+    animation: iconSpin 0.8s ease-in-out;
+}
+
+@keyframes iconSpin {
+    0% { transform: rotate(0deg) scale(1); }
+    50% { transform: rotate(180deg) scale(1.2); }
+    100% { transform: rotate(360deg) scale(1); }
+}
+
+.payment-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 800;
+    position: relative;
+    z-index: 1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.payment-details {
+    background: rgba(248, 249, 250, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 1;
+    transition: all 0.4s ease;
+}
+
+.payment-card:hover .payment-details {
+    background: rgba(255, 255, 255, 0.9);
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.bank-info {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.bank-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.8rem;
+}
+
+.account-number {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-dark);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    font-family: 'Courier New', monospace;
+}
+
+.account-name {
+    color: var(--text-light);
+    font-size: 1.1rem;
+}
+
+.copy-btn {
+    width: 100%;
+    padding: 1.2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.copy-btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.copy-btn:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.copy-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(102, 126, 234, 0.5);
+}
+
+.copy-btn:active {
+    transform: translateY(-2px);
+}
+
+.copy-icon {
+    font-size: 1.2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* QRIS Specific Styles */
+.qris-container {
+    text-align: center;
+}
+
+.qris-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 20px;
+    margin: 0 auto 1rem;
+    display: block;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.5s ease;
+    border: 3px solid rgba(139, 92, 246, 0.3);
+}
+
+.qris-image:hover {
+    transform: scale(1.1) rotate(2deg);
+    box-shadow: 0 20px 60px rgba(139, 92, 246, 0.4);
+    border-color: rgba(139, 92, 246, 0.6);
+}
+
+.qris-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* COD Specific Styles */
+.cod-info {
+    text-align: center;
+}
+
+.cod-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 25px rgba(67, 233, 123, 0.4);
+    animation: pulse 2s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.cod-badge::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); box-shadow: 0 8px 25px rgba(67, 233, 123, 0.4); }
+    50% { transform: scale(1.05); box-shadow: 0 12px 35px rgba(67, 233, 123, 0.6); }
+}
+
+.badge-icon {
+    font-size: 1.5rem;
+}
+
+.cod-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    margin-bottom: 0.8rem;
+}
+
+.cod-area {
+    font-size: 1rem;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.cod-note {
+    background: #fef3c7;
+    border-left: 4px solid #f59e0b;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-top: 1.5rem;
+}
+
+.cod-note p {
+    color: #92400e;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.payment-steps {
+    margin-top: auto;
+    position: relative;
+    z-index: 1;
+    padding-top: 1rem;
+}
+
+.payment-steps h4 {
+    font-size: 1.2rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.payment-steps h4::before {
+    content: '📝';
+    font-size: 1.3rem;
+}
+
+.payment-steps ol {
+    padding-left: 1.5rem;
+    color: var(--text-light);
+}
+
+.payment-steps li {
+    margin-bottom: 0.8rem;
+    line-height: 1.6;
+    position: relative;
+    transition: all 0.3s ease;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.payment-steps li:hover {
+    color: var(--primary);
+    transform: translateX(8px);
+}
+
+.payment-steps li::marker {
+    font-weight: 700;
+    color: var(--primary);
+}
+
+/* Important Notes */
+.important-notes {
+    background: white;
+    border-radius: 25px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    margin-bottom: 4rem;
+    border: 3px solid #fef3c7;
+}
+
+.notes-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.notes-icon {
+    font-size: 2.5rem;
+}
+
+.notes-header h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.notes-content ul {
+    list-style: none;
+    padding: 0;
+}
+
+.notes-content li {
+    padding: 1rem;
+    margin-bottom: 0.8rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    position: relative;
+    padding-left: 3rem;
+    transition: all 0.3s ease;
+}
+
+.notes-content li:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.notes-content li::before {
+    content: '✓';
+    position: absolute;
+    left: 1rem;
+    color: #10b981;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.notes-content strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* CTA Section */
+.cta-section {
+    text-align: center;
+    background: var(--gradient-1);
+    color: white;
+    padding: 4rem;
+    border-radius: 25px;
+    box-shadow: 0 15px 50px rgba(102, 126, 234, 0.3);
+}
+
+.cta-section h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 800;
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+}
+
+.cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 1.2rem 3rem;
+    background: white;
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.btn-icon {
+    font-size: 1.5rem;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: var(--primary);
+    color: white;
+    padding: 3rem 0;
+    margin-top: 5rem;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-brand h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+    opacity: 0.9;
+}
+
+.footer-copyright p {
+    opacity: 0.8;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu a {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .payment-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .payment-card {
+        padding: 2rem;
+    }
+
+    .payment-icon {
+        font-size: 3rem;
+    }
+
+    .account-number {
+        font-size: 1.5rem;
+    }
+
+    .important-notes {
+        padding: 2rem;
+    }
+
+    .cta-section {
+        padding: 3rem 2rem;
+    }
+
+    .cta-section h3 {
+        font-size: 2rem;
+    }
+
+    .footer-content {
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .payment-card h3 {
+        font-size: 1.5rem;
+    }
+
+    .account-number {
+        font-size: 1.2rem;
+    }
+}
+ </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">👕</span>
+                <span class="logo-text">OneFeloved_</span>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Informasi & Produk</a></li>
+                <li><a href="kontak.html">Kontak & Media</a></li>
+                 <li><a href="https://linktr.ee/onefeloved10">Linktree</a></li>
+                <li><a href="pembayaran.html">Pembayaran</a></li>
+                <li><a href="promosi.html">Promosi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="payment-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Metode Pembayaran</h1>
+            <p class="hero-subtitle">Pilih metode pembayaran yang paling nyaman untuk Anda</p>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-section">
+        <div class="container">
+            <div class="payment-grid">
+                
+                <!-- Transfer Bank -->
+                <div class="payment-card">
+                    <div class="payment-icon">🏦</div>
+                    <h3>Transfer Bank</h3>
+                    <div class="payment-details">
+                        <div class="bank-info">
+                            <p class="bank-name">Bank Syariah</p>
+                            <p class="account-number">08000210233831</p>
+                            <p class="account-name">a/n Indah Astriani</p>
+                        </div>
+                        <button class="copy-btn" onclick="copyToClipboard('08000210233831', this)">
+                            <span class="copy-icon">📋</span> Salin Nomor
+                        </button>
+                    </div>
+                    <div class="payment-steps">
+                        <h4>Cara Pembayaran:</h4>
+                        <ol>
+                            <li>Buka aplikasi mobile banking atau m-banking Anda</li>
+                            <li>Pilih menu Transfer ke Bank Syariah</li>
+                            <li>Masukkan nomor rekening tujuan</li>
+                            <li>Masukkan jumlah yang harus dibayar</li>
+                            <li>Konfirmasi transaksi dan simpan bukti transfer</li>
+                            <li>Kirim bukti transfer ke WhatsApp kami</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- DANA -->
+                <div class="payment-card">
+                    <div class="payment-icon">💳</div>
+                    <h3>DANA</h3>
+                    <div class="payment-details">
+                        <div class="bank-info">
+                            <p class="bank-name">DANA</p>
+                            <p class="account-number">082268451755</p>
+                            <p class="account-name">a/n Indah Astriani</p>
+                        </div>
+                        <button class="copy-btn" onclick="copyToClipboard('082268451755', this)">
+                            <span class="copy-icon">📋</span> Salin Nomor
+                        </button>
+                    </div>
+                    <div class="payment-steps">
+                        <h4>Cara Pembayaran:</h4>
+                        <ol>
+                            <li>Buka aplikasi DANA di smartphone Anda</li>
+                            <li>Pilih menu "Kirim" atau "Transfer"</li>
+                            <li>Masukkan nomor DANA tujuan</li>
+                            <li>Input jumlah pembayaran sesuai invoice</li>
+                            <li>Tambahkan catatan (opsional)</li>
+                            <li>Konfirmasi dengan PIN DANA Anda</li>
+                            <li>Screenshot bukti transfer dan kirim ke WhatsApp</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- QRIS -->
+                <div class="payment-card qris-card">
+                    <div class="payment-icon">📱</div>
+                    <h3>QRIS</h3>
+                    <div class="payment-details">
+                        <div class="qris-container">
+                            <img src="qris.png" alt="QRIS OneFeloved" class="qris-image" 
+                                 onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22300%22%3E%3Crect width=%22300%22 height=%22300%22 fill=%22%23f0f0f0%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22%234A5568%22%3EQRIS%3C/text%3E%3C/svg%3E'">
+                            <p class="qris-name">OneFeloved_</p>
+                        </div>
+                    </div>
+                    <div class="payment-steps">
+                        <h4>Cara Pembayaran:</h4>
+                        <ol>
+                            <li>Buka aplikasi e-wallet favorit Anda (GoPay, OVO, Dana, ShopeePay, dll)</li>
+                            <li>Pilih menu "Scan QR" atau "Bayar"</li>
+                            <li>Scan kode QRIS di atas</li>
+                            <li>Masukkan nominal pembayaran</li>
+                            <li>Konfirmasi pembayaran dengan PIN</li>
+                            <li>Simpan bukti pembayaran</li>
+                            <li>Kirim screenshot bukti ke WhatsApp kami</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- COD -->
+                <div class="payment-card cod-card">
+                    <div class="payment-icon">🚚</div>
+                    <h3>Cash on Delivery (COD)</h3>
+                    <div class="payment-details">
+                        <div class="cod-info">
+                            <div class="cod-badge">
+                                <span class="badge-icon">✅</span>
+                                <span>Bayar di Tempat</span>
+                            </div>
+                            <p class="cod-description">Bayar langsung saat barang diterima</p>
+                            <p class="cod-area">Area: Padang & Sekitarnya</p>
+                        </div>
+                    </div>
+                    <div class="payment-steps">
+                        <h4>Cara Pemesanan COD:</h4>
+                        <ol>
+                            <li>Hubungi kami via WhatsApp untuk konfirmasi ketersediaan</li>
+                            <li>Berikan alamat lengkap untuk pengiriman</li>
+                            <li>Tunggu konfirmasi dari admin kami</li>
+                            <li>Kami akan mengatur jadwal pengiriman</li>
+                            <li>Siapkan uang pas saat barang tiba</li>
+                            <li>Cek kondisi barang sebelum membayar</li>
+                            <li>Selesaikan pembayaran tunai kepada kurir</li>
+                        </ol>
+                        <div class="cod-note">
+                            <p><strong>Catatan:</strong> Untuk COD, mohon siapkan uang pas. Kami tidak melayani COD untuk area di luar Padang.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Important Notes -->
+            <div class="important-notes">
+                <div class="notes-header">
+                    <span class="notes-icon">⚠️</span>
+                    <h3>Informasi Penting</h3>
+                </div>
+                <div class="notes-content">
+                    <ul>
+                        <li>Konfirmasi pembayaran maksimal 1x24 jam setelah transfer</li>
+                        <li>Kirim bukti pembayaran ke WhatsApp: <strong>083826338496</strong></li>
+                        <li>Pesanan akan diproses setelah pembayaran dikonfirmasi</li>
+                        <li>Untuk COD, pastikan alamat Anda berada di area yang kami layani</li>
+                        <li>Barang yang sudah dibeli tidak dapat ditukar atau dikembalikan</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h3>Butuh Bantuan?</h3>
+                <p>Tim kami siap membantu Anda dengan senang hati</p>
+                <a href="https://wa.me/6283826338496" class="cta-btn" target="_blank">
+                    <span class="btn-icon">💬</span>
+                    Hubungi WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>👕 OneFeloved_</h3>
+                    <p>Preloved Fashion Berkualitas</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 OneFeloved_. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle menu mobile
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Tutup menu saat link diklik
+        const menuLinks = document.querySelectorAll('.nav-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Copy to clipboard function
+        function copyToClipboard(text, button) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<span class="copy-icon">✓</span> Tersalin!';
+                button.style.background = '#10b981';
+                
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.style.background = '';
+                }, 2000);
+            }).catch(err => {
+                alert('Gagal menyalin: ' + err);
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animasi saat scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.payment-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

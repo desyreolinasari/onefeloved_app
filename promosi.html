@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promosi - OneFeloved_</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D3748;
+            --secondary: #4A5568;
+            --accent: #718096;
+            --light: #E2E8F0;
+            --white: #FFFFFF;
+            --text-dark: #1A202C;
+            --text-light: #718096;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu a:hover::after {
+            width: 80%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* ==================== PROMOSI SECTION ==================== */
+        .promosi-section {
+            margin-top: 100px;
+            padding: 4rem 0;
+            min-height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .promo-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .promo-title {
+            font-size: 4rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #f0f0f0, #fff);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 3s ease-in-out infinite;
+            text-shadow: 0 0 30px rgba(255,255,255,0.5);
+        }
+
+        .promo-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==================== CARDS GRID ==================== */
+        .promo-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .promo-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            overflow: hidden;
+            animation: fadeInUp 1s ease both;
+            width: 380px;
+            max-width: 100%;
+        }
+
+        .promo-card:nth-child(1) { 
+            animation-delay: 0.2s;
+            flex-basis: 100%;
+            max-width: 420px;
+        }
+        .promo-card:nth-child(2) { animation-delay: 0.4s; }
+        .promo-card:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .promo-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.7s ease;
+        }
+
+        .promo-card:hover::before {
+            left: 100%;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-20px) scale(1.05);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            border-radius: 50%;
+            transition: all 0.5s ease;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .promo-card:hover .card-icon {
+            transform: scale(1.2) rotate(360deg);
+        }
+
+        .youtube-icon {
+            background: linear-gradient(135deg, #FF0000, #cc0000);
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.4);
+        }
+
+        .tiktok-icon {
+            background: linear-gradient(135deg, #000000, #333333);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+        }
+
+        .location-icon {
+            background: linear-gradient(135deg, #4285F4, #34A853);
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.4);
+        }
+
+        .card-title {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .card-description {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .card-button {
+            display: block;
+            width: 100%;
+            padding: 1.2rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .card-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: width 0.6s ease, height 0.6s ease;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
+
+        .card-button:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .youtube-btn {
+            background: linear-gradient(135deg, #FF0000, #cc0000);
+            color: white;
+            box-shadow: 0 10px 30px rgba(255, 0, 0, 0.3);
+        }
+
+        .youtube-btn:hover {
+            box-shadow: 0 15px 40px rgba(255, 0, 0, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .tiktok-btn {
+            background: linear-gradient(135deg, #000000, #333333);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .tiktok-btn:hover {
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+            transform: translateY(-3px);
+        }
+
+        .location-btn {
+            background: linear-gradient(135deg, #4285F4, #34A853);
+            color: white;
+            box-shadow: 0 10px 30px rgba(66, 133, 244, 0.3);
+        }
+
+        .location-btn:hover {
+            box-shadow: 0 15px 40px rgba(66, 133, 244, 0.5);
+            transform: translateY(-3px);
+        }
+
+        /* ==================== DECORATIVE ELEMENTS ==================== */
+        .floating-shapes {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float-random 20s infinite ease-in-out;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 120px;
+            height: 120px;
+            top: 60%;
+            right: 10%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 4s;
+        }
+
+        .shape:nth-child(4) {
+            width: 60px;
+            height: 60px;
+            top: 30%;
+            right: 30%;
+            animation-delay: 6s;
+        }
+
+        @keyframes float-random {
+            0%, 100% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, -20px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-20px, 20px) rotate(180deg);
+            }
+            75% {
+                transform: translate(20px, 20px) rotate(270deg);
+            }
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 100%;
+                padding: 2rem;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                gap: 0;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu a {
+                width: 100%;
+                padding: 1rem;
+                text-align: center;
+            }
+
+            .promo-title {
+                font-size: 2.5rem;
+            }
+
+            .promo-subtitle {
+                font-size: 1.2rem;
+            }
+
+            .promo-grid {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .promo-card {
+                width: 100%;
+                max-width: 100%;
+                padding: 2rem;
+            }
+
+            .promo-card:nth-child(1) {
+                flex-basis: auto;
+            }
+
+            .card-icon {
+                width: 80px;
+                height: 80px;
+                font-size: 3rem;
+            }
+
+            .card-title {
+                font-size: 1.5rem;
+            }
+
+            .card-description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Shapes -->
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">👕</span>
+                <span class="logo-text">OneFeloved_</span>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Informasi & Produk</a></li>
+                <li><a href="kontak.html">Kontak & Media</a></li>
+                 <li><a href="https://linktr.ee/onefeloved10">Linktree</a></li>
+                <li><a href="pembayaran.html">Pembayaran</a></li>
+                <li><a href="promosi.html">Promosi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Promosi Section -->
+    <section class="promosi-section">
+        <div class="container">
+            <div class="promo-header">
+                <h1 class="promo-title">Temukan Kami Di Mana Saja! 🚀</h1>
+                <p class="promo-subtitle">Follow media sosial kami untuk update produk terbaru & promo menarik</p>
+            </div>
+
+            <div class="promo-grid">
+                <!-- YouTube Card -->
+                <div class="promo-card">
+                    <div class="card-icon youtube-icon">▶️</div>
+                    <h2 class="card-title">YouTube Channel</h2>
+                    <p class="card-description">
+                        Tonton video koleksi terbaru kami, tips fashion, dan behind the scenes dari OneFeloved_!
+                    </p>
+                    <a href="https://youtube.com/@onefeloved?si=e0ikf9KwI8mUPWVr" target="_blank" class="card-button youtube-btn">
+                        Subscribe Sekarang 🎬
+                    </a>
+                </div>
+
+                <!-- TikTok Card -->
+                <div class="promo-card">
+                    <div class="card-icon tiktok-icon">🎵</div>
+                    <h2 class="card-title">TikTok</h2>
+                    <p class="card-description">
+                        Konten seru, fashion inspo, dan promo eksklusif! Follow TikTok kami untuk vibes preloved yang kekinian.
+                    </p>
+                    <a href="https://www.tiktok.com/@onefeloved_" target="_blank" class="card-button tiktok-btn">
+                        Follow TikTok Kami 🔥
+                    </a>
+                </div>
+
+                <!-- Location Card -->
+                <div class="promo-card">
+                    <div class="card-icon location-icon">📍</div>
+                    <h2 class="card-title">Lokasi Toko</h2>
+                    <p class="card-description">
+                        Kunjungi toko kami langsung di Padang! Lihat koleksi preloved berkualitas secara langsung.
+                    </p>
+                    <a href="https://maps.app.goo.gl/NP8TUASCqQfXCkey5?g_st=iw" target="_blank" class="card-button location-btn">
+                        Lihat Lokasi 🗺️
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking a link
+        const menuLinks = document.querySelectorAll('.nav-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Add entrance animation to cards on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.promo-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

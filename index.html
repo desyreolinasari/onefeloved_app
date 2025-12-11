@@ -1,0 +1,1403 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneFeloved_ - Preloved Fashion Padang</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+   <style>
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2D3748;
+    --secondary: #4A5568;
+    --accent: #718096;
+    --light: #E2E8F0;
+    --white: #FFFFFF;
+    --text-dark: #1A202C;
+    --text-light: #718096;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background-color: #F7FAFC;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================== NAVIGATION ==================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-menu a:hover::after {
+    width: 80%;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+/* ==================== HERO SECTION ==================== */
+.hero {
+    margin-top: 70px;
+    height: 90vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 50 Q 25 25, 50 50 T 100 50" stroke="rgba(255,255,255,0.1)" fill="none"/></svg>');
+    opacity: 0.3;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    padding: 2rem;
+    animation: fadeInUp 1s ease;
+}
+
+/* Tambahkan CSS ini ke bagian <style> di dalam <head> */
+
+
+/* Animasi Gradasi untuk Hero Title */
+.hero-title {
+font-size: 5rem;
+font-weight: 900;
+margin-bottom: 1rem;
+text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+background-size: 400% 400%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+animation: gradientShift 3s ease-in-out infinite;
+}
+
+
+@keyframes gradientShift {
+0% {
+background-position: 0% 50%;
+}
+50% {
+background-position: 100% 50%;
+}
+100% {
+background-position: 0% 50%;
+}
+}
+
+
+/* Animasi Gradasi untuk Hero Subtitle */
+.hero-subtitle {
+font-size: 2rem;
+font-weight: 600;
+margin-bottom: 0.5rem;
+background: linear-gradient(45deg, #ff9a9e, #fecfef, #fecfef, #ffecd2);
+background-size: 300% 300%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+animation: gradientShift 4s ease-in-out infinite reverse;
+}
+
+
+/* Animasi Gradasi untuk Hero Description */
+.hero-description {
+font-size: 1.2rem;
+margin-bottom: 2rem;
+opacity: 0.9;
+background: linear-gradient(45deg, #a8edea, #fed6e3, #d299c2, #fef9d7);
+background-size: 300% 300%;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+background-clip: text;
+animation: gradientShift 5s ease-in-out infinite;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: white;
+    color: var(--primary);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-secondary:hover {
+    background: white;
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== ABOUT SECTION ==================== */
+.about {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); /* Gradient background untuk kedalaman */
+    overflow: hidden; /* Mencegah overflow dari animasi */
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: fadeInUp 1s ease-out forwards; /* Animasi masuk saat load */
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-image {
+    position: relative;
+    animation: slideInLeft 1.2s ease-out; /* Animasi slide dari kiri */
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus */
+}
+
+.image-wrapper:hover {
+    transform: scale(1.05) rotate(1deg); /* Efek zoom dan rotasi saat hover */
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25); /* Shadow lebih dramatis */
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    display: block;
+    transition: filter 0.3s ease; /* Transisi untuk filter */
+}
+
+.image-wrapper:hover img {
+    filter: brightness(1.1) saturate(1.2); /* Efek brighten dan saturate saat hover */
+}
+
+.owner-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 15px;
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: badgeSlideUp 1.5s ease-out 0.5s forwards; /* Animasi badge muncul terlambat */
+    transition: transform 0.3s ease; /* Transisi untuk hover */
+}
+
+.owner-badge:hover {
+    transform: translateY(0) scale(1.02); /* Efek lift saat hover */
+}
+
+@keyframes badgeSlideUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.owner-badge h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+    transition: color 0.3s ease;
+}
+
+.owner-badge:hover h3 {
+    color: #ff6b6b; /* Warna berubah saat hover untuk kesan interaktif */
+}
+
+.owner-badge p {
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.nim {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(45deg, var(--primary), #ff6b6b); /* Gradient teks */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGlow 2s ease-in-out infinite alternate; /* Efek glow pelan */
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(255, 107, 107, 0.8);
+    }
+}
+
+.section-title.centered {
+    text-align: center;
+}
+
+.about-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    animation: textFadeIn 1.5s ease-out 0.8s both; /* Animasi teks muncul */
+}
+
+@keyframes textFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+}
+
+.about-text strong {
+    color: var(--primary);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.about-text strong:hover {
+    color: #ff6b6b; /* Warna berubah pada strong text saat hover */
+}
+
+/* ==================== VISION MISSION ==================== */
+.vision-mission {
+    padding: 5rem 0;
+    /* Background gradient yang bergerak pelan untuk efek premium */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #f5f7fa 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 8s ease-in-out infinite; /* Animasi gradient bergerak */
+    overflow: hidden; /* Mencegah overflow saat animasi */
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.vm-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    /* Animasi staggered untuk kartu muncul satu per satu */
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Delay untuk kartu kedua agar staggered */
+.vm-grid .vm-card:nth-child(2) {
+    animation-delay: 0.3s;
+}
+
+.vm-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Transisi lebih smooth dengan easing */
+    position: relative;
+    overflow: hidden; /* Untuk efek glow */
+}
+
+.vm-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.5s ease;
+    z-index: 1; /* Efek shimmer saat hover */
+}
+
+.vm-card:hover::before {
+    left: 100%;
+}
+
+.vm-card:hover {
+    transform: translateY(-15px) scale(1.05) rotateX(5deg); /* 3D transform untuk efek depth */
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2), 0 0 20px rgba(0, 123, 255, 0.3); /* Glow effect */
+}
+
+.vm-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+    display: block;
+    text-align: center;
+}
+
+.vm-card:hover .vm-icon {
+    transform: rotate(360deg) scale(1.2); /* Ikon berputar dan membesar saat hover */
+}
+
+.vm-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.vm-card:hover h3 {
+    color: #007bff; /* Warna berubah saat hover */
+}
+
+.vm-card p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    transition: opacity 0.3s ease;
+}
+
+.vm-card:hover p {
+    opacity: 0.9; /* Sedikit fade untuk teks */
+}
+
+.mission-list {
+    list-style: none;
+    color: var(--text-light);
+    animation: listFadeIn 1s ease-out 0.5s forwards; /* Animasi list muncul setelah kartu */
+    opacity: 0;
+}
+
+@keyframes listFadeIn {
+    to { opacity: 1; }
+}
+
+.mission-list li {
+    padding-left: 1.5rem;
+    margin-bottom: 0.8rem;
+    position: relative;
+    font-size: 1.05rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.mission-list li:hover {
+    transform: translateX(10px); /* Slide ke kanan saat hover */
+    color: var(--primary);
+}
+
+.mission-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--primary);
+    font-weight: bold;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.mission-list li:hover::before {
+    transform: scale(1.5) rotate(10deg); /* Checkmark membesar dan miring saat hover */
+    color: #28a745; /* Warna hijau untuk konfirmasi */
+}
+
+/* Responsivitas: Untuk layar kecil, grid jadi 1 kolom */
+@media (max-width: 768px) {
+    .vm-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    .vm-card {
+        padding: 2rem;
+    }
+    .vm-icon {
+        font-size: 2.5rem;
+    }
+    .vm-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* ==================== PRODUCTS SECTION ==================== */
+.products {
+    padding: 5rem 0;
+    background: white;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--text-light);
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+}
+
+.products-grid {
+    display: flex;
+    flex-wrap: wrap;  /* Changed back to wrap to allow products to wrap to next row if needed, avoiding horizontal scroll */
+    justify-content: center;
+    gap: 1.5rem;  /* Reduced gap slightly for better fit */
+    margin-top: 3rem;
+    /* Removed overflow-x: auto; to prevent horizontal scrolling */
+}
+
+.product-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    flex: 0 0 240px;  /* Reduced width from 280px to 240px to make elements smaller and fit better without scrolling */
+    max-width: 240px;  /* Adjusted max-width accordingly */
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    position: relative;
+    overflow: hidden;
+    height: 300px;  /* Reduced height from 350px to make the card more compact */
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.1);
+}
+
+.product-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+.overlay-btn {
+    padding: 0.8rem 1.5rem;
+    background: white;
+    color: var(--primary);
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.overlay-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+.product-info {
+    padding: 1.5rem;
+}
+
+.product-info h3 {
+    font-size: 1.2rem;  /* Slightly reduced font size for compactness */
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.product-info p {
+    color: var(--text-light);
+    font-size: 0.9rem;  /* Slightly reduced font size */
+    margin-bottom: 1rem;
+}
+
+.product-price {
+    font-size: 1.2rem;  /* Slightly reduced font size */
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* ==================== TESTIMONIALS ==================== */
+.testimonials {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Satu kolom penuh untuk card lebih besar */
+    gap: 2rem;
+    margin-top: 3rem;
+    max-width: 800px; /* Batasi lebar maksimal agar tidak terlalu lebar, tapi tetap besar */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.testimonial-card {
+    background: white;
+    padding: 4rem; /* Tingkatkan padding dari 2rem ke 4rem untuk card lebih besar dan lebih mudah dilihat */
+    border-radius: 20px; /* Tingkatkan border-radius untuk kesan lebih besar */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Tingkatkan shadow untuk efek lebih dramatis */
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.quote-icon {
+    font-size: 5rem; /* Tingkatkan ukuran quote icon agar lebih proporsional dengan card besar */
+    color: var(--accent);
+    opacity: 0.2;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    font-family: Georgia, serif;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem; /* Tingkatkan gap untuk ruang lebih antara avatar dan teks */
+    margin-top: 3rem; /* Tingkatkan margin top untuk ruang dari quote icon */
+}
+
+.author-avatar {
+    width: 300px; /* Perbesar dari 100px ke 150px untuk lebih besar */
+    height: 300px; /* Perbesar dari 100px ke 150px untuk lebih besar */
+    border-radius: 0; /* Ubah dari 50% ke 0 untuk bentuk kotak */
+    overflow: hidden;
+    border: 0px solid var(--primary); /* Tingkatkan border untuk kesan lebih tegas */
+    flex-shrink: 0;
+}
+
+.author-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.testimonial-content {
+    flex: 1;
+}
+
+.testimonial-text {
+    color: var(--text-light);
+    font-size: 1.2rem; /* Tingkatkan font size dari 1rem ke 1.2rem untuk lebih mudah dibaca */
+    line-height: 1.8;
+    margin-bottom: 1.5rem; /* Tingkatkan margin bottom untuk ruang lebih */
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+}
+
+.author-info h4 {
+    color: var(--primary);
+    font-size: 1.3rem; /* Tingkatkan font size untuk nama */
+    margin-bottom: 0.5rem;
+}
+
+.stars {
+    color: #FFA500;
+    font-size: 1.2rem; /* Tingkatkan ukuran bintang */
+}
+/* ==================== INFO SECTION ==================== */
+.info-section {
+    padding: 5rem 0;
+    background: white;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.info-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2.5rem;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.info-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.info-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.info-number,
+.info-time,
+.info-highlight {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+/* ==================== CONTACT SECTION ==================== */
+.contact {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.contact-info {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--light);
+}
+
+.contact-icon {
+    font-size: 1.8rem;
+    flex-shrink: 0;
+}
+
+.contact-item h4 {
+    color: var(--primary);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.contact-item a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: var(--primary);
+}
+
+.contact-item p {
+    color: var(--text-light);
+    margin: 0;
+}
+
+.social-media {
+    margin-top: 2rem;
+}
+
+.social-media h4 {
+    color: var(--primary);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.instagram {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.tiktok {
+    background: #000000;
+}
+
+.youtube {
+    background: #FF0000;
+}
+
+.map-container {
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 500px;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: var(--primary);
+    color: white;
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-brand h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+    opacity: 0.9;
+}
+
+.footer-copyright p {
+    opacity: 0.8;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu a {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .about-grid,
+    .vm-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .image-wrapper img {
+        height: 400px;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+        text-align: center;
+        justify-content: center;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">👕</span>
+                <span class="logo-text">OneFeloved_</span>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Informasi & Produk</a></li>
+                <li><a href="kontak.html">Kontak & Media</a></li>
+                 <li><a href="https://linktr.ee/onefeloved10">Linktree</a></li>
+                <li><a href="pembayaran.html">Pembayaran</a></li>
+                <li><a href="promosi.html">Promosi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">OneFeloved_</h1>
+            <p class="hero-subtitle">Preloved Fashion Berkualitas</p>
+            <p class="hero-description">Temukan gaya unik dengan harga terjangkau</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary">Lihat Koleksi</a>
+                <a href="https://wa.me/6283826338496" class="btn btn-secondary" target="_blank">Hubungi Kami</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image">
+                    <div class="image-wrapper">
+                        <img src="owner.png" alt="Indah Astriani" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22500%22%3E%3Crect width=%22400%22 height=%22500%22 fill=%22%234A5568%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%22100%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E👩%3C/text%3E%3C/svg%3E'">
+                        <div class="owner-badge">
+                            <h3>Indah Astriani</h3>
+                            <p>Founder & Owner</p>
+                            <p class="nim">NIM: 2216030141</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <h2 class="section-title">Tentang OneFeloved_</h2>
+                    <p class="about-text">
+                        <strong>OneFeloved_</strong> adalah destinasi fashion preloved terpercaya di Padang yang menghadirkan koleksi pakaian berkualitas dengan harga yang ramah di kantong.
+                    </p>
+                    <p class="about-text">
+                        Kami percaya bahwa fashion berkelanjutan adalah masa depan. Setiap item yang kami jual telah melalui proses kurasi ketat untuk memastikan kualitas terbaik bagi pelanggan kami.
+                    </p>
+                    <p class="about-text">
+                        Dengan berbagai pilihan mulai dari celana, kemeja, kaos, hingga rok, kami berkomitmen memberikan pengalaman berbelanja yang menyenangkan dan memuaskan.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Mission -->
+    <section class="vision-mission">
+        <div class="container">
+            <div class="vm-grid">
+                <div class="vm-card">
+                    <div class="vm-icon">🎯</div>
+                    <h3>Visi Kami</h3>
+                    <p>Menjadi toko fashion preloved terdepan di Padang yang dikenal dengan kualitas produk terbaik dan pelayanan memuaskan untuk setiap pelanggan.</p>
+                </div>
+                <div class="vm-card">
+                    <div class="vm-icon">🚀</div>
+                    <h3>Misi Kami</h3>
+                    <ul class="mission-list">
+                        <li>Menyediakan fashion preloved berkualitas tinggi</li>
+                        <li>Memberikan harga terjangkau untuk semua kalangan</li>
+                        <li>Mendukung fashion berkelanjutan</li>
+                        <li>Melayani dengan sepenuh hati</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title centered">Koleksi Kami</h2>
+            <p class="section-subtitle">Pilihan fashion preloved berkualitas untuk gaya Anda</p>
+            
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="celana.png" alt="Celana Preloved" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect width=%22300%22 height=%22400%22 fill=%22%232D3748%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2280%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E👖%3C/text%3E%3C/svg%3E'">
+                        <div class="product-overlay">
+                            <a href="https://wa.me/6283826338496" class="overlay-btn" target="_blank">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Celana</h3>
+                        <p>Koleksi celana preloved dengan berbagai model dan ukuran</p>
+                        <div class="product-price">Mulai dari Rp 30.000</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="kemeja.png" alt="Kemeja Preloved" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect width=%22300%22 height=%22400%22 fill=%22%234A5568%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2280%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E👔%3C/text%3E%3C/svg%3E'">
+                        <div class="product-overlay">
+                            <a href="https://wa.me/6283826338496" class="overlay-btn" target="_blank">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Kemeja</h3>
+                        <p>Kemeja berkualitas untuk tampilan profesional dan kasual</p>
+                        <div class="product-price">Mulai dari Rp 30.000</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="jilbab.png" alt="Kaos Preloved" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect width=%22300%22 height=%22400%22 fill=%22%232D3748%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2280%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E👕%3C/text%3E%3C/svg%3E'">
+                        <div class="product-overlay">
+                            <a href="https://wa.me/6283826338496" class="overlay-btn" target="_blank">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Jilbab</h3>
+                        <p>Jilbab yang nyaman untuk aktivitas sehari-hari</p>
+                        <div class="product-price">Mulai dari Rp 25.000</div>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="rok.png" alt="Rok Preloved" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22300%22 height=%22400%22%3E%3Crect width=%22300%22 height=%22400%22 fill=%22%234A5568%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2280%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E👗%3C/text%3E%3C/svg%3E'">
+                        <div class="product-overlay">
+                            <a href="https://wa.me/6283826338496" class="overlay-btn" target="_blank">Pesan Sekarang</a>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Rok</h3>
+                        <p>Rok dengan berbagai model dan warna menarik</p>
+                        <div class="product-price">Mulai dari Rp 30.000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+  <!-- Testimonials -->
+<section class="testimonials" id="testimonials">
+    <div class="container">
+        <h2 class="section-title centered">Kata Mereka</h2>
+        <p class="section-subtitle">Testimoni dari pelanggan setia kami</p>
+        
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="quote-icon">"</div>
+                <div class="testimonial-author">
+                    <div class="author-avatar">
+                        <img src="testimoni.jpeg" alt="Screenshot Chat WhatsApp Customer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%234A5568%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E💬%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <div class="testimonial-content">
+                        <p class="testimonial-text">Kakkk bajunya bagus BANGETTT, WANGII JUGAAA</p>
+                        <div class="author-info">
+                            <h4>Sari - Padang</h4>
+                            <div class="stars">⭐⭐⭐⭐⭐</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">📋</div>
+                    <h3>NIB Resmi</h3>
+                    <p class="info-number">0711250001893</p>
+                    <p>Terdaftar dan terpercaya</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">⏰</div>
+                    <h3>Jam Operasional</h3>
+                    <p class="info-time">Setiap Hari</p>
+                    <p>09:00 - 21:00 WIB</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">✨</div>
+                    <h3>Kualitas Terjamin</h3>
+                    <p class="info-highlight">100% Original</p>
+                    <p>Produk telah dikurasi</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title centered">Hubungi Kami</h2>
+            <p class="section-subtitle">Temukan kami di berbagai platform</p>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <span class="contact-icon">📱</span>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <a href="https://wa.me/6283826338496" target="_blank">083826338496</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="mailto:083826338496@gmail.com">083826338496@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon">📍</span>
+                        <div>
+                            <h4>Lokasi</h4>
+                            <p>Kos Cemara, Jalan Kebun, Balai Gadang,
+Kecamatan Koto Tangah, Kota Padang</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-media">
+                        <h4>Follow Us</h4>
+                        <div class="social-links">
+                            <a href="https://www.instagram.com/onefeloved_?igsh=MWhwaXdzamVudjhmZg%3D%3D&utm_source=qr" target="_blank" class="social-btn instagram">
+                                <span>📷</span>
+                            </a>
+                            <a href="https://www.tiktok.com/@onefeloved_" target="_blank" class="social-btn tiktok">
+                                <span>🎵</span>
+                            </a>
+                            <a href="https://youtube.com/@onefeloved?si=e0ikf9KwI8mUPWVr" target="_blank" class="social-btn youtube">
+                                <span>▶️</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.3011445507644!2d100.35447197475975!3d-0.9472499990577849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2fd4b942b9b5db6f%3A0x4d0c5c8c8c8c8c8c!2sPadang%2C%20Kota%20Padang%2C%20Sumatera%20Barat!5e0!3m2!1sid!2sid!4v1234567890123!5m2!1sid!2sid"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>👕 OneFeloved_</h3>
+                    <p>Preloved Fashion Berkualitas</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 OneFeloved_. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle menu mobile
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+// Tutup menu saat link diklik
+const menuLinks = document.querySelectorAll('.nav-links a');
+menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+// Tutup menu saat klik di luar menu
+document.addEventListener('click', (e) => {
+    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+    }
+});
+
+// Smooth scroll untuk link internal
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+</script>
+</body>
+</html>

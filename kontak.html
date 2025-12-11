@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - OneFeloved_ Preloved Fashion</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+ <style>
+    /* ==================== GLOBAL STYLES ==================== */
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2D3748;
+    --secondary: #4A5568;
+    --accent: #718096;
+    --light: #E2E8F0;
+    --white: #FFFFFF;
+    --text-dark: #1A202C;
+    --text-light: #718096;
+    --whatsapp: #25D366;
+    --facebook: #1877F2;
+    --instagram: #E4405F;
+    --tiktok: #000000;
+    --shopee: #EE4D2D;
+    --tokopedia: #42B549;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background-color: #F7FAFC;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================== NAVIGATION ==================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 1rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-menu a:hover::after {
+    width: 80%;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+}
+
+/* ==================== HERO SECTION ==================== */
+.contact-hero {
+    margin-top: 70px;
+    height: 50vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.contact-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><path d="M0 50 Q 25 25, 50 50 T 100 50" stroke="rgba(255,255,255,0.1)" fill="none"/></svg>');
+    opacity: 0.3;
+    animation: patternMove 20s linear infinite;
+}
+
+@keyframes patternMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(100px); }
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    animation: fadeInUp 1s ease;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #fff, #f5f5f5, #fff);
+    background-size: 200% 200%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 3s ease-in-out infinite;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ==================== SECTION HEADER ==================== */
+.section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, var(--primary), #667eea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-description {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==================== CONTACT SECTION ==================== */
+.contact-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.contact-card {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.contact-card:hover::before {
+    opacity: 1;
+    animation: ripple 1.5s ease-out;
+}
+
+@keyframes ripple {
+    0% { transform: scale(0); }
+    100% { transform: scale(1); }
+}
+
+.contact-card:hover {
+    transform: translateY(-15px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover .card-icon {
+    transform: scale(1.2) rotate(360deg);
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.contact-detail {
+    font-size: 1rem;
+    color: var(--text-dark);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
+.contact-desc {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.contact-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-btn span {
+    position: relative;
+    z-index: 1;
+}
+
+.whatsapp-btn {
+    background: var(--whatsapp);
+    color: white;
+}
+
+.whatsapp-btn:hover {
+    background: #1ea952;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+}
+
+.email-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.email-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+}
+
+/* ==================== SOCIAL MEDIA SECTION ==================== */
+.social-section {
+    padding: 5rem 0;
+    background: white;
+}
+
+.social-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.social-card {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    transition: left 0.6s ease;
+}
+
+.social-card:hover::after {
+    left: 100%;
+}
+
+.social-card:hover {
+    transform: translateY(-10px) rotateY(5deg);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.social-icon {
+    font-size: 5rem;
+    margin-bottom: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.social-card:hover .social-icon {
+    transform: scale(1.2) rotate(10deg);
+}
+
+.social-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.social-card p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.social-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.facebook-btn {
+    background: var(--facebook);
+}
+
+.facebook-btn:hover {
+    background: #0c5cce;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(24, 119, 242, 0.4);
+}
+
+.instagram-btn {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.instagram-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(228, 64, 95, 0.5);
+}
+
+.tiktok-btn {
+    background: var(--tiktok);
+}
+
+.tiktok-btn:hover {
+    background: #333;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* ==================== E-COMMERCE SECTION ==================== */
+.ecommerce-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.ecommerce-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.ecommerce-card {
+    background: white;
+    padding: 3rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease;
+    border: 3px solid transparent;
+}
+
+.ecommerce-card:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+}
+
+.shopee-card:hover {
+    border-color: var(--shopee);
+}
+
+.tokopedia-card:hover {
+    border-color: var(--tokopedia);
+}
+
+.tiktokshop-card:hover {
+    border-color: var(--tiktok);
+}
+
+.ecommerce-icon {
+    font-size: 4.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.ecommerce-card:hover .ecommerce-icon {
+    transform: scale(1.3) rotate(-10deg);
+}
+
+.ecommerce-card h3 {
+    font-size: 1.8rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.ecommerce-card p {
+    color: var(--text-light);
+    margin-bottom: 2rem;
+    font-size: 1.05rem;
+}
+
+.ecommerce-btn {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.shopee-btn {
+    background: var(--shopee);
+}
+
+.shopee-btn:hover {
+    background: #d93e1f;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(238, 77, 45, 0.5);
+}
+
+.tokopedia-btn {
+    background: var(--tokopedia);
+}
+
+.tokopedia-btn:hover {
+    background: #36923b;
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(66, 181, 73, 0.5);
+}
+
+.tiktokshop-btn {
+    background: linear-gradient(135deg, #000 0%, #333 100%);
+}
+
+.tiktokshop-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ==================== CTA SECTION ==================== */
+.cta-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.05)"/></svg>');
+    animation: patternFloat 30s linear infinite;
+}
+
+@keyframes patternFloat {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-100px); }
+}
+
+.cta-content {
+    text-align: center;
+    color: white;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+}
+
+.cta-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2.5rem;
+    opacity: 0.95;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+}
+
+.cta-btn.primary {
+    background: white;
+    color: var(--primary);
+}
+
+.cta-btn.primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+}
+
+.cta-btn.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.cta-btn.secondary:hover {
+    background: white;
+    color: var(--primary);
+    transform: translateY(-5px);
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: var(--primary);
+    color: white;
+    padding: 3rem 0;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-brand h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-brand p {
+    opacity: 0.9;
+}
+
+.footer-copyright p {
+    opacity: 0.8;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 100%;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        gap: 0;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu a {
+        width: 100%;
+        padding: 1rem;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .social-grid,
+    .ecommerce-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cta-content h2 {
+        font-size: 2rem;
+    }
+
+    .cta-content p {
+        font-size: 1.1rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cta-btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .footer-content {
+        text-align: center;
+        justify-content: center;
+    }
+}
+ </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">👕</span>
+                <span class="logo-text">OneFeloved_</span>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Informasi & Produk</a></li>
+                <li><a href="kontak.html">Kontak & Media</a></li>
+                 <li><a href="https://linktr.ee/onefeloved10">Linktree</a></li>
+                <li><a href="pembayaran.html">Pembayaran</a></li>
+                <li><a href="promosi.html">Promosi</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="contact-hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Hubungi Kami</h1>
+            <p class="hero-subtitle">Kami siap melayani Anda dengan sepenuh hati</p>
+        </div>
+    </section>
+
+    <!-- Contact Options Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📱 Kontak Kami</h2>
+                <p class="section-description">Pilih metode komunikasi yang paling nyaman untuk Anda</p>
+            </div>
+
+            <div class="contact-grid">
+                <!-- WhatsApp Owner -->
+                <div class="contact-card whatsapp-card">
+                    <div class="card-icon">
+                        <span>📱</span>
+                    </div>
+                    <h3>WhatsApp Owner</h3>
+                    <p class="contact-detail">081371000596</p>
+                    <p class="contact-desc">Hubungi owner secara langsung</p>
+                    <a href="https://wa.me/6281371000596" target="_blank" class="contact-btn whatsapp-btn">
+                        <span>Chat Owner</span>
+                    </a>
+                </div>
+
+                <!-- WhatsApp Bisnis -->
+                <div class="contact-card whatsapp-card">
+                    <div class="card-icon">
+                        <span>💼</span>
+                    </div>
+                    <h3>WhatsApp Bisnis</h3>
+                    <p class="contact-detail">083826338496</p>
+                    <p class="contact-desc">Layanan customer service kami</p>
+                    <a href="https://wa.me/6283826338496" target="_blank" class="contact-btn whatsapp-btn">
+                        <span>Chat Bisnis</span>
+                    </a>
+                </div>
+
+                <!-- Email Owner -->
+                <div class="contact-card email-card">
+                    <div class="card-icon">
+                        <span>✉️</span>
+                    </div>
+                    <h3>Email Owner</h3>
+                    <p class="contact-detail">astrianiindah42@gmail.com</p>
+                    <p class="contact-desc">Email pribadi owner</p>
+                    <a href="mailto:astrianiindah42@gmail.com" class="contact-btn email-btn">
+                        <span>Kirim Email</span>
+                    </a>
+                </div>
+
+                <!-- Email Bisnis -->
+                <div class="contact-card email-card">
+                    <div class="card-icon">
+                        <span>📧</span>
+                    </div>
+                    <h3>Email Bisnis</h3>
+                    <p class="contact-detail">onefeloved10@gmail.com</p>
+                    <p class="contact-desc">Email resmi bisnis</p>
+                    <a href="mailto:onefeloved10@gmail.com" class="contact-btn email-btn">
+                        <span>Kirim Email</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Section -->
+    <section class="social-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🌟 Media Sosial</h2>
+                <p class="section-description">Follow kami untuk update produk terbaru dan promo menarik</p>
+            </div>
+
+            <div class="social-grid">
+                <!-- Facebook -->
+                <div class="social-card facebook-card">
+                    <div class="social-icon">
+                        <span>📘</span>
+                    </div>
+                    <h3>Facebook</h3>
+                    <p>Ikuti halaman Facebook kami</p>
+                    <a href="https://www.facebook.com/share/1CzzF61Qa1/?mibextid=wwXIfr" target="_blank" class="social-btn facebook-btn">
+                        <span>Kunjungi Facebook</span>
+                    </a>
+                </div>
+
+                <!-- Instagram -->
+                <div class="social-card instagram-card">
+                    <div class="social-icon">
+                        <span>📷</span>
+                    </div>
+                    <h3>Instagram</h3>
+                    <p>@onefeloved_</p>
+                    <a href="https://www.instagram.com/onefeloved_?igsh=MWhwaXdzamVudjhmZg%3D%3D&utm_source=qr" target="_blank" class="social-btn instagram-btn">
+                        <span>Follow Instagram</span>
+                    </a>
+                </div>
+
+                <!-- TikTok -->
+                <div class="social-card tiktok-card">
+                    <div class="social-icon">
+                        <span>🎵</span>
+                    </div>
+                    <h3>TikTok</h3>
+                    <p>@onefeloved_</p>
+                    <a href="https://www.tiktok.com/@onefeloved_" target="_blank" class="social-btn tiktok-btn">
+                        <span>Follow TikTok</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-Commerce Section -->
+    <section class="ecommerce-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🛍️ Marketplace</h2>
+                <p class="section-description">Belanja mudah di platform e-commerce favorit Anda</p>
+            </div>
+
+            <div class="ecommerce-grid">
+                <!-- Shopee -->
+                <div class="ecommerce-card shopee-card">
+                    <div class="ecommerce-icon">
+                        <span>🛒</span>
+                    </div>
+                    <h3>Shopee</h3>
+                    <p>Belanja di Shopee dengan bebas ongkir</p>
+                    <a href="https://shopee.co.id/onefeloved_" target="_blank" class="ecommerce-btn shopee-btn">
+                        <span>Kunjungi Toko</span>
+                    </a>
+                </div>
+
+                <!-- Tokopedia -->
+                <div class="ecommerce-card tokopedia-card">
+                    <div class="ecommerce-icon">
+                        <span>🏪</span>
+                    </div>
+                    <h3>Tokopedia</h3>
+                    <p>Cek koleksi lengkap kami di Tokopedia</p>
+                    <a href="https://www.tokopedia.com/onefelove/onepreloved-atasan-lucu-nyaman-dan-bikin-cantik-1733548133413323817" target="_blank" class="ecommerce-btn tokopedia-btn">
+                        <span>Kunjungi Toko</span>
+                    </a>
+                </div>
+
+                <!-- TikTok Shop -->
+                <div class="ecommerce-card tiktokshop-card">
+                    <div class="ecommerce-icon">
+                        <span>🎁</span>
+                    </div>
+                    <h3>TikTok Shop</h3>
+                    <p>Belanja sambil nonton video menarik</p>
+                    <a href="https://shop-id.tokopedia.com/view/product/1733550371216262185?encode_params=MIIBPwQMFIczpjKIkK4lWUj3BIIBG2eSdeNWHyRnXj51b1mxV7nIOnYK2VI0SUCNe8-kMvSVYX55XaC-wcvL22ptuf_fWvXWKaj8N__j9lXb9tyNq4GzuOGDVj_aQFCoV8DNDcr1LOLBjpMf0xHY-uOmFx5aYqE9LGYP3EpHKE76aA3YPQg5zUmkO_lMOjZjq4xsgOrDUGoJpeyevQ-Yvm37-wqaIf-QdWovFuQ83m0WScmlJQbnR8SXsc1iz85Jqy8Ewh9VbfPOxixs8SPmh73FVQzPjA6nb5L2HuP4hqeUTLLmgCgVvKcXgSCGPxP2pxBzlIAp1grGCNXauX7ttiyVjGGffFxqXcY0Ajaac3CV1FEiuvK81j3e9k0t2VVFMUkL10klVwrQBs5ccuxcfkgEEP1g_qzl_tJLUy6T2jh8xN4%3D" target="_blank" class="ecommerce-btn tiktokshop-btn">
+                        <span>Kunjungi Toko</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Tertarik menjadi mitra?</h2>
+                <p>Hubungi kami sekarang untuk mendapatkan peluang bisnis terbaik!</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/6283826338496" target="_blank" class="cta-btn primary">
+                        <span>Chat WhatsApp</span>
+                    </a>
+                    <a href="index.html#products" class="cta-btn secondary">
+                        <span>Lihat Produk</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>👕 OneFeloved_</h3>
+                    <p>Preloved Fashion Berkualitas</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 OneFeloved_. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Close menu when clicking on a link
+        const menuLinks = document.querySelectorAll('.nav-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.contact-card, .social-card, .ecommerce-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'all 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
