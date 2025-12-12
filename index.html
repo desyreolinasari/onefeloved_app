@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
    <style>
 /* ==================== GLOBAL STYLES ==================== */
-/* ==================== GLOBAL STYLES ==================== */
 * {
     margin: 0;
     padding: 0;
@@ -925,11 +924,24 @@ body {
     background: #FF0000;
 }
 
+/* ==================== MAPS - IMPROVED ==================== */
 .map-container {
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     height: 500px;
+    width: 100%;
+    position: relative;
+}
+
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 /* ==================== FOOTER ==================== */
@@ -1090,6 +1102,7 @@ body {
         max-width: 100%;
     }
 
+
     .product-image {
         height: 250px;
     }
@@ -1159,6 +1172,28 @@ body {
         font-size: 1rem;
         text-align: center;
     }
+    .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.contact-info {
+    padding: 2rem;
+    width: 100%;
+    max-width: 100%;
+}
+
+.map-container {
+    height: 350px; /* Tinggi yang lebih baik untuk mobile */
+    width: 100%;
+    margin: 0;
+    border-radius: 15px;
+}
+
+.map-container iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
 
     /* Info Section */
     .info-grid {
@@ -1202,7 +1237,7 @@ body {
     </style>
 </head>
 <body>
-    <nav class="navbar">
+  <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
                 <span class="logo-icon">👕</span>
@@ -1217,7 +1252,7 @@ body {
                 <li><a href="index.html">Beranda</a></li>
                 <li><a href="tentang.html">Informasi & Produk</a></li>
                 <li><a href="kontak.html">Kontak & Media</a></li>
-                 <li><a href="https://linktr.ee/onefeloved10">Linktree</a></li>
+                <li><a href="https://linktr.ee/onefeloved10">Linktree</a></li>
                 <li><a href="pembayaran.html">Pembayaran</a></li>
                 <li><a href="promosi.html">Promosi</a></li>
             </ul>
@@ -1357,31 +1392,31 @@ body {
         </div>
     </section>
 
-  <!-- Testimonials -->
-<section class="testimonials" id="testimonials">
-    <div class="container">
-        <h2 class="section-title centered">Kata Mereka</h2>
-        <p class="section-subtitle">Testimoni dari pelanggan setia kami</p>
-        
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="quote-icon">"</div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <img src="testimoni.jpeg" alt="Screenshot Chat WhatsApp Customer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%234A5568%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E💬%3C/text%3E%3C/svg%3E'">
-                    </div>
-                    <div class="testimonial-content">
-                        <p class="testimonial-text">Kakkk bajunya bagus BANGETTT, WANGII JUGAAA</p>
-                        <div class="author-info">
-                            <h4>Sari - Padang</h4>
-                            <div class="stars">⭐⭐⭐⭐⭐</div>
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title centered">Kata Mereka</h2>
+            <p class="section-subtitle">Testimoni dari pelanggan setia kami</p>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-icon">"</div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="testimoni.jpeg" alt="Screenshot Chat WhatsApp Customer" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%22150%22%3E%3Crect width=%22150%22 height=%22150%22 fill=%22%234A5568%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E💬%3C/text%3E%3C/svg%3E'">
+                        </div>
+                        <div class="testimonial-content">
+                            <p class="testimonial-text">Kakkk bajunya bagus BANGETTT, WANGII JUGAAA</p>
+                            <div class="author-info">
+                                <h4>Sari - Padang</h4>
+                                <div class="stars">⭐⭐⭐⭐⭐</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Info Section -->
     <section class="info-section">
@@ -1436,8 +1471,7 @@ body {
                         <span class="contact-icon">📍</span>
                         <div>
                             <h4>Lokasi</h4>
-                            <p>Kos Cemara, Jalan Kebun, Balai Gadang,
-Kecamatan Koto Tangah, Kota Padang</p>
+                            <p>Kos Cemara, Jalan Kebun, Balai Gadang, Kecamatan Koto Tangah, Kota Padang</p>
                         </div>
                     </div>
                     
@@ -1457,14 +1491,19 @@ Kecamatan Koto Tangah, Kota Padang</p>
                     </div>
                 </div>
                 
-               <iframe 
-    src="https://www.google.com/maps?q=Kos+Cemara,+Jalan+Kebun,+Balai+Gadang,+Kecamatan+Koto+Tangah,+Kota+Padang&output=embed"
-    width="100%" 
-    height="100%" 
-    style="border:0;" 
-    allowfullscreen="" 
-    loading="lazy">
-</iframe>
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps?q=Kos+Cemara,+Jalan+Kebun,+Balai+Gadang,+Kecamatan+Koto+Tangah,+Kota+Padang&output=embed"
+                        width="100%" 
+                        height="100%" 
+                        style="border:0; display:block;" 
+                        allowfullscreen="" 
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Footer -->
