@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Business - OneFeloved_</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+/* ==================== GLOBAL STYLES ==================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #2D3748;
+    --secondary: #4A5568;
+    --accent: #718096;
+    --light: #E2E8F0;
+    --white: #FFFFFF;
+    --text-dark: #1A202C;
+    --text-light: #718096;
+    --whatsapp: #25D366;
+    --facebook: #1877F2;
+    --instagram: #E4405F;
+    --tiktok: #000000;
+    --shopee: #EE4D2D;
+    --tokopedia: #42B549;
+    --gradient-bg: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.1);
+    --shadow-strong: 0 10px 40px rgba(0, 0, 0, 0.15);
+    --border-radius: 20px;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ==================== NAVIGATION ==================== */
+/* ==================== NAVIGATION ==================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 0.75rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0;
+    margin-left: 0;
+    padding: 0 20px 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-right: auto;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo-icon {
+    font-size: 1.8rem;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-10px); }
+    60% { transform: translateY(-5px); }
+}
+
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.75rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-menu a:hover::after {
+    width: 80%;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+    background: rgba(45, 55, 72, 0.05);
+}
+
+/* ==================== HERO HEADER ==================== */
+.hero-header {
+    margin-top: 80px;
+    padding: 4rem 0 3rem;
+    text-align: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="80" r="3" fill="white" opacity="0.1"/><circle cx="50" cy="50" r="1.5" fill="white" opacity="0.15"/></svg>');
+    animation: float 20s infinite linear;
+}
+
+@keyframes float {
+    from { transform: translateY(0); }
+    to { transform: translateY(-100px); }
+}
+
+.hero-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-header p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ==================== POLICY SECTIONS ==================== */
+.policies-wrapper {
+    padding: 4rem 0;
+    min-height: 100vh;
+}
+
+.policy-card {
+    max-width: 900px;
+    margin: 0 auto 3rem;
+    background: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.policy-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.policy-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    border-bottom: 4px solid rgba(255, 255, 255, 0.2);
+}
+
+.policy-number {
+    font-size: 3rem;
+    font-weight: 900;
+    opacity: 0.3;
+    line-height: 1;
+}
+
+.policy-title {
+    flex: 1;
+}
+
+.policy-title h2 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.policy-body {
+    padding: 2.5rem;
+}
+
+.policy-body p {
+    color: var(--text-dark);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.policy-body strong {
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.policy-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.policy-list li {
+    position: relative;
+    padding: 1rem 1.5rem 1rem 3.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border-left: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.policy-list li:hover {
+    transform: translateX(8px);
+    background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+    border-left-color: #764ba2;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.2);
+}
+
+.policy-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 1.2rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+.contact-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0;
+}
+
+.contact-list li {
+    padding: 1rem 1.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border-left: 4px solid #25D366;
+    transition: all 0.3s ease;
+}
+
+.contact-list li:nth-child(2) {
+    border-left-color: #EA4335;
+}
+
+.contact-list li:nth-child(3) {
+    border-left-color: #E4405F;
+}
+
+.contact-list li:nth-child(4) {
+    border-left-color: #000000;
+}
+
+.contact-list li:nth-child(5) {
+    border-left-color: #FF0000;
+}
+
+.contact-list li:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact-list a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.contact-list a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+.location-box {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+    border-radius: 12px;
+    border-left: 4px solid #ff9800;
+}
+
+.location-box p {
+    margin: 0;
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* ==================== FOOTER ==================== */
+.footer {
+    background: var(--primary);
+    color: white;
+    padding: 3rem 0 2rem;
+    position: relative;
+    margin-top: 4rem;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-brand h3 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+}
+
+.footer-brand p {
+    opacity: 0.9;
+    font-size: 1rem;
+}
+
+.footer-copyright p {
+    opacity: 0.8;
+    font-size: 0.95rem;
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: flex;
+        z-index: 1001;
+    }
+
+    .nav-menu {
+        position: fixed;
+        right: -100%;
+        top: 70px;
+        flex-direction: column;
+        background: white;
+        width: 80%;
+        max-width: 300px;
+        height: calc(100vh - 70px);
+        padding: 2rem;
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        gap: 0;
+        overflow-y: auto;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .nav-menu a {
+        width: 100%;
+        padding: 1rem;
+        text-align: left;
+        display: block;
+        border-radius: 8px;
+    }
+
+    .nav-menu a:hover {
+        background: var(--light);
+    }
+
+    .hero-header {
+        padding: 3rem 1rem 2rem;
+    }
+
+    .hero-header h1 {
+        font-size: 2rem;
+    }
+
+    .hero-header p {
+        font-size: 1rem;
+    }
+
+    .policy-card {
+        margin: 0 1rem 2rem;
+    }
+
+    .policy-header {
+        padding: 1.5rem;
+    }
+
+    .policy-number {
+        font-size: 2rem;
+    }
+
+    .policy-title h2 {
+        font-size: 1.4rem;
+    }
+
+    .policy-body {
+        padding: 1.5rem;
+    }
+
+    .policy-list li {
+        padding: 0.8rem 1rem 0.8rem 3rem;
+    }
+
+    .footer-content {
+        text-align: center;
+        justify-content: center;
+    }
+
+    .footer-brand,
+    .footer-copyright {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-header h1 {
+        font-size: 1.6rem;
+    }
+
+    .policy-card {
+        margin: 0 0.5rem 1.5rem;
+    }
+
+    .policy-header {
+        padding: 1.2rem;
+    }
+
+    .policy-body {
+        padding: 1.2rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">👕</span>
+                <span class="logo-text">OneFeloved_</span>
+            </div>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Produk</a></li>
+                <li><a href="ecommers.html">E-Commerce</a></li>
+                <li><a href="kontak.html">Media</a></li>
+                <li><a href="linktree.html">Linktree</a></li>
+                <li><a href="pembayaran.html">Pembayaran</a></li>
+                <li><a href="polisi.html">Policy Business</a></li>
+                <li><a href="promosi.html">Promosi</a></li>
+                <li><a href="pengaduan.html">Pengaduan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <div class="hero-header">
+        <h1>📋 Kebijakan Bisnis</h1>
+        <p>Panduan lengkap untuk pengalaman berbelanja yang aman dan nyaman bersama OneFeloved_</p>
+    </div>
+
+    <!-- Policy Cards -->
+    <div class="policies-wrapper">
+        <div class="container">
+            <!-- Policy 1 -->
+            <div class="policy-card">
+                <div class="policy-header">
+                    <div class="policy-number">01</div>
+                    <div class="policy-title">
+                        <h2>Deskripsi Usaha</h2>
+                    </div>
+                </div>
+                <div class="policy-body">
+                    <p><strong>OneFeloved_</strong> adalah bisnis fashion preloved yang berlokasi di Padang, Sumatera Barat. Kami menyediakan koleksi pakaian bekas pakai berkualitas tinggi yang telah dikurasi dengan baik, mulai dari celana, kemeja, kaos, jilbab, hingga rok. Kami berkomitmen untuk mendukung gaya hidup berkelanjutan dengan menawarkan produk fashion yang ramah lingkungan dan terjangkau. Setiap item dipilih secara teliti untuk memastikan kualitas, kebersihan, dan kenyamanan bagi pelanggan kami.</p>
+                </div>
+            </div>
+
+            <!-- Policy 2 -->
+            <div class="policy-card">
+                <div class="policy-header">
+                    <div class="policy-number">02</div>
+                    <div class="policy-title">
+                        <h2>Aturan Pemesanan</h2>
+                    </div>
+                </div>
+                <div class="policy-body">
+                    <ul class="policy-list">
+                        <li>Pemesanan dapat dilakukan melalui WhatsApp atau platform media sosial kami (Instagram, TikTok).</li>
+                        <li>Pastikan untuk menyebutkan ukuran, warna, dan model yang diinginkan saat memesan.</li>
+                        <li>Pembayaran dilakukan setelah konfirmasi ketersediaan barang dan sebelum pengiriman.</li>
+                        <li>Pemesanan dianggap sah setelah pembayaran diterima dan dikonfirmasi oleh kami.</li>
+                        <li>Kami tidak menerima pemesanan tanpa konfirmasi terlebih dahulu.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Policy 3 -->
+            <div class="policy-card">
+                <div class="policy-header">
+                    <div class="policy-number">03</div>
+                    <div class="policy-title">
+                        <h2>Return (Pengembalian)</h2>
+                    </div>
+                </div>
+                <div class="policy-body">
+                    <ul class="policy-list">
+                        <li>Pengembalian barang dapat dilakukan dalam waktu 3 hari setelah barang diterima, dengan syarat barang dalam kondisi asli dan belum digunakan.</li>
+                        <li>Biaya pengembalian ditanggung oleh pembeli, kecuali jika ada kesalahan dari pihak kami (misalnya barang rusak atau tidak sesuai pesanan).</li>
+                        <li>Untuk pengembalian, hubungi kami terlebih dahulu melalui WhatsApp untuk mendapatkan instruksi.</li>
+                        <li>Barang yang dikembalikan akan diperiksa terlebih dahulu sebelum pengembalian dana diproses.</li>
+                        <li>Kami tidak menerima pengembalian untuk barang yang sudah dicuci atau dimodifikasi.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Policy 4 -->
+            <div class="policy-card">
+                <div class="policy-header">
+                    <div class="policy-number">04</div>
+                    <div class="policy-title">
+                        <h2>Kontak Person</h2>
+                    </div>
+                </div>
+                <div class="policy-body">
+                    <p>Untuk pertanyaan, pemesanan, atau keluhan, silakan hubungi kami melalui:</p>
+                    <ul class="contact-list">
+                        <li><strong>WhatsApp:</strong> <a href="https://wa.me/6283826338496" target="_blank">083826338496</a></li>
+                        <li><strong>Email:</strong> <a href="mailto:083826338496@gmail.com">083826338496@gmail.com</a></li>
+                        <li><strong>Instagram:</strong> <a href="https://www.instagram.com/onefeloved_?igsh=MWhwaXdzamVudjhmZg%3D%3D&utm_source=qr" target="_blank">@onefeloved_</a></li>
+                        <li><strong>TikTok:</strong> <a href="https://www.tiktok.com/@onefeloved_" target="_blank">@onefeloved_</a></li>
+                        <li><strong>YouTube:</strong> <a href="https://youtube.com/@onefeloved?si=e0ikf9KwI8mUPWVr" target="_blank">@onefeloved</a></li>
+                    </ul>
+                    <div class="location-box">
+                        <p>📍 Lokasi: Kos Cemara, Jalan Kebun, Balai Gadang, Kecamatan Koto Tangah, Kota Padang.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Policy 5 -->
+            <div class="policy-card">
+                <div class="policy-header">
+                    <div class="policy-number">05</div>
+                    <div class="policy-title">
+                        <h2>Layanan Tanggapan</h2>
+                    </div>
+                </div>
+                <div class="policy-body">
+                    <p>Kami berkomitmen untuk memberikan layanan tanggapan yang cepat dan profesional. Setiap pesan atau pertanyaan akan ditanggapi dalam waktu maksimal 24 jam pada hari kerja. Untuk urgensi tinggi, kami akan berusaha merespons secepat mungkin melalui WhatsApp. Jika ada keluhan atau masalah, kami akan menangani dengan prioritas untuk memastikan kepuasan pelanggan.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>👕 OneFeloved_</h3>
+                    <p>Preloved Fashion Berkualitas</p>
+                </div>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 OneFeloved_. All Rights Reserved</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle menu mobile
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Tutup menu saat link diklik
+        const menuLinks = document.querySelectorAll('.nav-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Tutup menu saat klik di luar menu
+        document.addEventListener('click', (e) => {
+            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll untuk link internal
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

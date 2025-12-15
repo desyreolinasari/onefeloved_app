@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce - OneFeloved_</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D3748;
+            --secondary: #4A5568;
+            --accent: #718096;
+            --light: #E2E8F0;
+            --white: #FFFFFF;
+            --text-dark: #1A202C;
+            --text-light: #718096;
+            --shopee: #EE4D2D;
+            --tokopedia: #42B549;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation - SAMA SEPERTI INDEX.HTML */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            padding: 0.75rem 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0;
+            margin-left: 0;
+            padding: 0 20px 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-height: 60px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-right: auto;
+            padding-left: 0;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .nav-menu li {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.75rem 1.2rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            position: relative;
+            white-space: nowrap;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-menu a:hover::after {
+            width: 80%;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+            background: rgba(45, 55, 72, 0.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 70px;
+            padding: 5rem 0 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* E-Commerce Section */
+        .ecommerce-section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 800;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 4rem;
+        }
+
+        .ecommerce-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-bottom: 5rem;
+        }
+
+        .ecommerce-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .ecommerce-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .ecommerce-card:hover::before {
+            left: 100%;
+        }
+
+        .ecommerce-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .platform-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 1.5rem;
+            font-size: 5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .ecommerce-card:hover .platform-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .shopee-icon {
+            background: linear-gradient(135deg, #EE4D2D 0%, #ff6b4d 100%);
+        }
+
+        .tokopedia-icon {
+            background: linear-gradient(135deg, #42B549 0%, #5dd567 100%);
+        }
+
+        .ecommerce-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .ecommerce-card p {
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .store-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            color: white;
+        }
+
+        .shopee-btn {
+            background: linear-gradient(135deg, #EE4D2D 0%, #ff6b4d 100%);
+        }
+
+        .shopee-btn:hover {
+            background: linear-gradient(135deg, #ff6b4d 0%, #EE4D2D 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(238, 77, 45, 0.4);
+        }
+
+        .tokopedia-btn {
+            background: linear-gradient(135deg, #42B549 0%, #5dd567 100%);
+        }
+
+        .tokopedia-btn:hover {
+            background: linear-gradient(135deg, #5dd567 0%, #42B549 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(66, 181, 73, 0.4);
+        }
+
+        /* Shipping Info Section */
+        .shipping-section {
+            background: white;
+            padding: 5rem 0;
+            margin-top: 3rem;
+        }
+
+        .shipping-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .shipping-steps {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .step-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h3 {
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .step-card p {
+            color: var(--text-light);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .step-card ul {
+            list-style: none;
+            color: var(--text-light);
+            margin-top: 1rem;
+        }
+
+        .step-card li {
+            padding-left: 1.5rem;
+            position: relative;
+            margin-bottom: 0.5rem;
+        }
+
+        .step-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .highlight-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-box p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-top: 5rem;
+        }
+
+        .footer p {
+            opacity: 0.9;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .nav-menu {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                gap: 0;
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .nav-menu a {
+                width: 100%;
+                padding: 1rem;
+                text-align: left;
+                display: block;
+                border-radius: 8px;
+            }
+
+            .nav-menu a:hover {
+                background: var(--light);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .ecommerce-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">👕</span>
+                <span class="logo-text">OneFeloved_</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Produk</a></li>
+                <li><a href="ecommers.html">E-Commerce</a></li>
+                <li><a href="kontak.html">Media</a></li>
+                <li><a href="linktree.html">Linktree</a></li>
+                <li><a href="pembayaran.html">Pembayaran</a></li>
+                <li><a href="polisi.html">Policy Business</a></li>
+                <li><a href="promosi.html">Promosi</a></li>
+                <li><a href="pengaduan.html">Pengaduan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>🛒 Belanja Online</h1>
+            <p>Temukan koleksi lengkap OneFeloved_ di platform e-commerce favorit Anda</p>
+        </div>
+    </section>
+
+    <section class="ecommerce-section">
+        <div class="container">
+            <h2 class="section-title">Toko Online Kami</h2>
+            <p class="section-subtitle">Pilih platform yang Anda suka untuk berbelanja</p>
+            
+            <div class="ecommerce-grid">
+                <div class="ecommerce-card">
+                    <div class="platform-icon shopee-icon">🛍️</div>
+                    <h3>Shopee</h3>
+                    <p>Kunjungi toko kami di Shopee untuk berbagai promo menarik dan gratis ongkir!</p>
+                    <a href="https://shopee.co.id/onefeloved_" target="_blank" class="store-btn shopee-btn">
+                        Buka Toko Shopee
+                    </a>
+                </div>
+
+                <div class="ecommerce-card">
+                    <div class="platform-icon tokopedia-icon">🏪</div>
+                    <h3>Tokopedia - Atasan</h3>
+                    <p>Temukan koleksi atasan lucu, nyaman, dan bikin cantik di toko Tokopedia kami.</p>
+                    <a href="https://www.tokopedia.com/onefelove/onepreloved-atasan-lucu-nyaman-dan-bikin-cantik-1733548133413323817" target="_blank" class="store-btn tokopedia-btn">
+                        Lihat Produk Atasan
+                    </a>
+                </div>
+
+                <div class="ecommerce-card">
+                    <div class="platform-icon tokopedia-icon">👗</div>
+                    <h3>Tokopedia - Bawahan</h3>
+                    <p>Jelajahi koleksi bawahan berkualitas dengan berbagai model dan ukuran.</p>
+                    <a href="https://www.tokopedia.com/onefelove/product/1733550371216262185" target="_blank" class="store-btn tokopedia-btn">
+                        Lihat Produk Bawahan
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="shipping-section">
+        <div class="container">
+            <div class="shipping-content">
+                <h2 class="section-title">📦 Cara Pengiriman</h2>
+                <p class="section-subtitle">Proses pengiriman yang mudah dan aman untuk kenyamanan Anda</p>
+                
+                <div class="shipping-steps">
+                    <div class="step-card">
+                        <span class="step-number">1</span>
+                        <h3>Pilih Produk & Checkout</h3>
+                        <p>Pilih produk favorit Anda dari toko online kami di Shopee atau Tokopedia. Tambahkan ke keranjang dan lakukan checkout seperti biasa.</p>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-number">2</span>
+                        <h3>Proses Verifikasi & Pengemasan</h3>
+                        <p>Setelah pembayaran dikonfirmasi, kami akan:</p>
+                        <ul>
+                            <li>Memverifikasi pesanan Anda dalam 1-2 jam</li>
+                            <li>Mengemas produk dengan rapi dan aman</li>
+                            <li>Memastikan kualitas produk sebelum dikirim</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-number">3</span>
+                        <h3>Pengiriman via J&T Express</h3>
+                        <p>Kami menggunakan jasa J&T Express sebagai mitra pengiriman utama kami karena:</p>
+                        <ul>
+                            <li>Pengiriman cepat dan terpercaya</li>
+                            <li>Jangkauan luas ke seluruh Indonesia</li>
+                            <li>Tracking real-time untuk pesanan Anda</li>
+                            <li>Asuransi pengiriman tersedia</li>
+                        </ul>
+                    </div>
+
+                    <div class="step-card">
+                        <span class="step-number">4</span>
+                        <h3>Lacak & Terima Paket</h3>
+                        <p>Anda akan menerima nomor resi untuk melacak paket Anda. Estimasi pengiriman:</p>
+                        <ul>
+                            <li>Dalam kota Padang: 1-2 hari kerja</li>
+                            <li>Luar kota Sumatera Barat: 2-3 hari kerja</li>
+                            <li>Pulau Jawa: 3-5 hari kerja</li>
+                            <li>Luar Jawa: 4-7 hari kerja</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h3>💡 Tips Berbelanja</h3>
+                    <p>Pastikan alamat pengiriman Anda lengkap dan benar. Hubungi kami via WhatsApp jika ada pertanyaan tentang pengiriman atau produk!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <h3>👕 OneFeloved_</h3>
+            <p>&copy; 2024 OneFeloved_. All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        const menuLinks = document.querySelectorAll('.nav-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

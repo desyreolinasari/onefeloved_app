@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pengaduan - OneFeloved_</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2D3748;
+            --secondary: #4A5568;
+            --accent: #718096;
+            --light: #E2E8F0;
+            --white: #FFFFFF;
+            --text-dark: #1A202C;
+            --text-light: #718096;
+            --success: #48BB78;
+            --warning: #ECC94B;
+            --danger: #F56565;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: #F7FAFC;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        /* ==================== NAVIGATION ==================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 0.75rem 0;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0;
+    margin-left: 0;
+    padding: 0 20px 0 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+    margin-right: auto;
+    text-decoration: none; /* Menghilangkan garis bawah pada logo */
+}
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(7px, 7px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.nav-menu li {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.75rem 1.2rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    white-space: nowrap;
+    display: inline-block;
+    text-align: center;
+}
+
+.nav-menu a::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--primary);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-menu a:hover::after {
+    width: 80%;
+}
+
+.nav-menu a:hover {
+    color: var(--primary);
+    background: rgba(45, 55, 72, 0.05);
+}
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            margin-top: 70px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 0;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* ==================== PETUGAS SECTION ==================== */
+        .petugas-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+
+        .petugas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .petugas-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .petugas-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .petugas-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            overflow: hidden;
+            border: 4px solid var(--primary);
+        }
+
+        .petugas-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .petugas-name {
+            font-size: 1.5rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .petugas-role {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .petugas-contact {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* ==================== ALUR SECTION ==================== */
+        .alur-section {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        }
+
+        .alur-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .alur-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .step-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+            transition: transform 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateX(10px);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .step-content p {
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+
+        /* ==================== KONTAK SECTION ==================== */
+        .kontak-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .kontak-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .kontak-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+        }
+
+        .kontak-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .kontak-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .kontak-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .kontak-detail {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+        }
+
+        .response-time {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .btn-pengaduan {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.8rem 2rem;
+            background: white;
+            color: var(--primary);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-pengaduan:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* ==================== INFO BOX ==================== */
+        .info-box {
+            background: linear-gradient(135deg, #48BB78 0%, #38A169 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 3rem auto;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-box h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .info-box p {
+            font-size: 1rem;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: var(--primary);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .mobile-toggle {
+                display: flex;
+                z-index: 1001;
+            }
+
+            .nav-menu {
+                position: fixed;
+                right: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: white;
+                width: 80%;
+                max-width: 300px;
+                height: calc(100vh - 70px);
+                padding: 2rem;
+                box-shadow: -5px 0 30px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                gap: 0;
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu li {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .nav-menu a {
+                width: 100%;
+                padding: 1rem;
+                text-align: left;
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .step-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .step-number {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <span class="logo-icon">👕</span>
+                <span class="logo-text">OneFeloved_</span>
+            </a>
+            <button class="mobile-toggle" id="mobileToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tentang.html">Produk</a></li>
+                <li><a href="ecommers.html">E-Commerce</a></li>
+                <li><a href="kontak.html">Media</a></li>
+                <li><a href="linktree.html">Linktree</a></li>
+                <li><a href="pembayaran.html">Pembayaran</a></li>
+                <li><a href="polisi.html">Policy Business</a></li>
+                <li><a href="promosi.html">Promosi</a></li>
+                <li><a href="pengaduan.html">Pengaduan</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>📢 Pusat Pengaduan</h1>
+            <p>Kami siap mendengarkan dan menyelesaikan keluhan Anda</p>
+        </div>
+    </section>
+
+    <!-- Petugas Section -->
+    <section class="petugas-section">
+        <div class="container">
+            <h2 class="section-title">Petugas Pengaduan</h2>
+            <p class="section-subtitle">Tim kami siap melayani pengaduan Anda dengan profesional</p>
+            
+            <div class="petugas-grid">
+                <div class="petugas-card">
+                    <div class="petugas-avatar">
+                        <img src="owner.png" alt="Indah Astriani" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22%3E%3Crect width=%22120%22 height=%22120%22 fill=%22%234A5568%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E👩%3C/text%3E%3C/svg%3E'">
+                    </div>
+                    <h3 class="petugas-name">Indah Astriani</h3>
+                    <p class="petugas-role">Petugas Pengaduan Utama</p>
+                    <div class="petugas-contact">
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>083826338496</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📧</span>
+                            <span>083826338496@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="petugas-card">
+                    <div class="petugas-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22120%22 height=%22120%22%3E%3Crect width=%22120%22 height=%22120%22 fill=%22%23667eea%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 font-size=%2260%22 text-anchor=%22middle%22 dy=%22.3em%22 fill=%22white%22%3E🎧%3C/text%3E%3C/svg%3E" alt="Tim Customer Service">
+                    </div>
+                    <h3 class="petugas-name">Tim Customer Service</h3>
+                    <p class="petugas-role">Layanan Pelanggan 24/7</p>
+                    <div class="petugas-contact">
+                        <div class="contact-item">
+                            <span>💬</span>
+                            <span>Chat WhatsApp</span>
+                        </div>
+                        <div class="contact-item">
+                            <span>📱</span>
+                            <span>Instagram DM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Alur Pengaduan Section -->
+    <section class="alur-section">
+        <div class="container">
+            <h2 class="section-title">Alur Pengaduan</h2>
+            <p class="section-subtitle">Ikuti langkah-langkah berikut untuk menyampaikan pengaduan Anda</p>
+            
+            <div class="alur-container">
+                <div class="alur-steps">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Persiapkan Informasi</h3>
+                            <p>Siapkan detail lengkap pengaduan Anda seperti: nomor pesanan, tanggal transaksi, foto produk (jika ada), dan deskripsi masalah yang Anda alami secara jelas dan detail.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Hubungi Petugas</h3>
+                            <p>Sampaikan pengaduan melalui salah satu channel yang tersedia: WhatsApp, Email, Instagram DM, atau TikTok DM. Pilih channel yang paling nyaman untuk Anda.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Verifikasi Data</h3>
+                            <p>Tim kami akan memverifikasi data dan informasi yang Anda berikan. Proses ini memastikan pengaduan Anda dapat ditangani dengan tepat dan cepat.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Proses Penanganan</h3>
+                            <p>Pengaduan Anda akan ditangani oleh tim kami. Kami akan melakukan investigasi dan mencari solusi terbaik untuk menyelesaikan masalah Anda.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <div class="step-content">
+                            <h3>Solusi & Tindak Lanjut</h3>
+                            <p>Kami akan memberikan solusi dan tindak lanjut yang diperlukan. Anda akan mendapatkan update secara berkala hingga pengaduan Anda terselesaikan dengan memuaskan.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>💡 Tips Pengaduan Efektif</h3>
+                <p>Untuk mempercepat proses penanganan, pastikan Anda menyertakan bukti transaksi, foto produk yang bermasalah, dan menjelaskan kronologi dengan detail. Semakin lengkap informasi yang Anda berikan, semakin cepat kami dapat membantu menyelesaikan masalah Anda.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Pengaduan Section -->
+    <section class="kontak-section">
+        <div class="container">
+            <h2 class="section-title">Kontak Pengaduan</h2>
+            <p class="section-subtitle">Pilih channel yang paling nyaman untuk Anda</p>
+            
+            <div class="kontak-grid">
+                <div class="kontak-card">
+                    <div class="kontak-icon">📱</div>
+                    <h3>WhatsApp</h3>
+                    <p class="kontak-detail">083826338496</p>
+                    <div class="response-time">
+                        <strong>⏱ Waktu Respon:</strong><br>
+                        1-2 jam (jam kerja)<br>
+                        3-5 jam (di luar jam kerja)
+                    </div>
+                    <a href="https://wa.me/6283826338496" class="btn-pengaduan" target="_blank">Chat Sekarang</a>
+                </div>
+
+                <div class="kontak-card">
+                    <div class="kontak-icon">📧</div>
+                    <h3>Email</h3>
+                    <p class="kontak-detail">083826338496@gmail.com</p>
+                    <div class="response-time">
+                        <strong>⏱ Waktu Respon:</strong><br>
+                        Maksimal 24 jam<br>
+                        (1 hari kerja)
+                    </div>
+                    <a href="mailto:083826338496@gmail.com" class="btn-pengaduan">Kirim Email</a>
+                </div>
+
+                <div class="kontak-card">
+                    <div class="kontak-icon">📷</div>
+                    <h3>Instagram</h3>
+                    <p class="kontak-detail">@onefeloved_</p>
+                    <div class="response-time">
+                        <strong>⏱ Waktu Respon:</strong><br>
+                        2-4 jam (jam kerja)<br>
+                        4-8 jam (di luar jam kerja)
+                    </div>
+                    <a href="https://www.instagram.com/onefeloved_" class="btn-pengaduan" target="_blank">Kirim DM</a>
+                </div>
+
+                <div class="kontak-card">
+                    <div class="kontak-icon">🎵</div>
+                    <h3>TikTok</h3>
+                    <p class="kontak-detail">@onefeloved_</p>
+                    <div class="response-time">
+                        <strong>⏱ Waktu Respon:</strong><br>
+                        3-6 jam (jam kerja)<br>
+                        6-12 jam (di luar jam kerja)
+                    </div>
+                    <a href="https://www.tiktok.com/@onefeloved_" class="btn-pengaduan" target="_blank">Kirim DM</a>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>⏰ Jam Operasional Pengaduan</h3>
+                <p><strong>Setiap Hari: 09:00 - 21:00 WIB</strong><br>
+                Pengaduan di luar jam kerja akan ditanggapi pada jam kerja berikutnya. Untuk kasus mendesak, silakan hubungi via WhatsApp untuk respon lebih cepat.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 OneFeloved_. All Rights Reserved</p>
+            <p>Kepuasan Pelanggan adalah Prioritas Kami</p>
+        </div>
+    </footer>
+
+    <script>
+        // Toggle menu mobile
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Tutup menu saat link diklik
+        const menuLinks = document.querySelectorAll('.nav-menu a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Tutup menu saat klik di luar menu
+        document.addEventListener('click', (e) => {
+            if (!mobileToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                mobileToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
